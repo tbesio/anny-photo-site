@@ -1591,3 +1591,56 @@ Processing by Devise::SessionsController#new as HTML
   Rendered devise/shared/_links.html.erb (1.4ms)
   Rendered devise/sessions/new.html.erb within layouts/application (33.5ms)
 Completed 200 OK in 343ms (Views: 326.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 50.178.28.186 at 2015-08-19 21:55:33 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+Completed 401 Unauthorized in 2477ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 50.178.28.186 at 2015-08-19 21:55:37 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (2.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (317.7ms)
+Completed 200 OK in 1602ms (Views: 1564.6ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/users/sign_in" for 50.178.28.186 at 2015-08-19 21:55:47 +0000
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vFswZHFttAG6EBSooU6i8kQDE8bXmNiiCxm6tYT0Uj7dC20ik0tfqUinsdbHtjejpscNDGmoYnnuUC/GmHsTUg==", "user"=>{"email"=>"thomas.besio@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "thomas.besio@gmail.com"]]
+  [1m[36m (0.7ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2015-08-18 22:14:58.545807"], ["current_sign_in_at", "2015-08-19 21:55:48.633215"], ["sign_in_count", 6], ["updated_at", "2015-08-19 21:55:48.641390"], ["id", 1]]
+  [1m[36m (36.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://anny-photo-site-tbesio.c9.io/
+Completed 302 Found in 1339ms (ActiveRecord: 38.4ms)
+
+
+Started GET "/" for 50.178.28.186 at 2015-08-19 21:55:49 +0000
+Processing by StaticPagesController#home as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered static_pages/home.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 481ms (Views: 431.5ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/users/sign_out" for 50.178.28.186 at 2015-08-19 21:55:56 +0000
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ij6OTAsahyCzITN29LLThmTimHZwGZT5QLoz1Coa/XCc0riTWlEL2tX5phqHkGSoH95v9xR9B0RG1gO5fXMuAQ=="}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://anny-photo-site-tbesio.c9.io/
+Completed 302 Found in 277ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 50.178.28.186 at 2015-08-19 21:55:56 +0000
+Processing by StaticPagesController#home as HTML
+Completed 401 Unauthorized in 27ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 50.178.28.186 at 2015-08-19 21:55:57 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (30.9ms)
+Completed 200 OK in 761ms (Views: 754.0ms | ActiveRecord: 0.0ms)
